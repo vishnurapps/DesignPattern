@@ -135,7 +135,21 @@ int main()
 {
 	FamilyMember *father = new Father();
 	father->display();
-	//father->setTransportMode(new PedestrianTransportMode());
 	father->setTransportMode(new VehicularTransportMode(new SuzukiGixxer()));
 	father->transport();
+
+	FamilyMember *mother = new Mother();
+	mother->display();
+	mother->setTransportMode(new VehicularTransportMode(new MaruthiSwift()));
+	mother->transport();
+
+	FamilyMember *brother = new Brother();
+	brother->display();
+	brother->setTransportMode(new TrainTransportMode());
+	brother->transport();
+
+	FamilyMember *sister = new Sister();
+	sister->display();
+	sister->setTransportMode(new PedestrianTransportMode());
+	sister->transport();
 }
