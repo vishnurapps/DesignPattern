@@ -4,13 +4,13 @@
 class Vehicle
 {
 public:
-	virtual void useVehicle();
+	virtual void useVehicle() = 0;
 };
 
 class HyundaiI20 : public Vehicle
 {
 public:
-	void useVehicle()
+	virtual void useVehicle()
 	{
 		std::cout << "Driving Hyundai I20" << std::endl;
 	}
@@ -19,7 +19,7 @@ public:
 class MaruthiSwift : public Vehicle
 {
 public:
-	void useVehicle()
+	virtual void useVehicle()
 	{
 		std::cout << "Driving Maruthi Swift" << std::endl;
 	}
@@ -28,7 +28,7 @@ public:
 class SuzukiGixxer : public Vehicle
 {
 public:
-	void useVehicle()
+	virtual void useVehicle()
 	{
 		std::cout << "Driving Suzuki Gixxer" << std::endl;
 	}
@@ -37,7 +37,7 @@ public:
 class HondaActiva : public Vehicle
 {
 public:
-	void useVehicle()
+	virtual void useVehicle()
 	{
 		std::cout << "Driving Honda Activa" << std::endl;
 	}
@@ -56,7 +56,7 @@ public:
 	std::unique_ptr<Vehicle> vehicle;
 	VehicularTransportMode(Vehicle *v): vehicle(v) {}
 	virtual void use()
-	{
+	{ 
 		vehicle->useVehicle();
 	}
 };
@@ -135,6 +135,7 @@ int main()
 {
 	FamilyMember *father = new Father();
 	father->display();
-	father->setTransportMode(new PedestrianTransportMode());
+	//father->setTransportMode(new PedestrianTransportMode());
+	father->setTransportMode(new VehicularTransportMode(new SuzukiGixxer()));
 	father->transport();
 }
