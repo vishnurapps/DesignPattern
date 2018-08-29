@@ -1,0 +1,34 @@
+#ifndef OBSERVER_PATTERN_OBSERVABLE_HPP
+#define OBSERVER_PATTERN_OBSERVABLE_HPP
+
+
+#include "Observer.hpp"
+
+/**
+ * Interface for the Observable
+ */
+class Observable {
+
+public:
+
+    /**
+     * Register an observer
+     * @param observer the observer object to be registered
+     */
+    virtual void registerObserver(Observer *observer) = 0;
+
+    /**
+     * Unregister an observer
+     * @param observer the observer object to be unregistered
+     */
+    virtual void removeObserver(Observer *observer) = 0;
+
+    /**
+     * Notify all the registered observers when a change happens
+     */
+    virtual void notifyObservers() = 0;
+
+};
+
+
+#endif //OBSERVER_PATTERN_OBSERVABLE_HPP
